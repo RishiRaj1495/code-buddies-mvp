@@ -20,11 +20,11 @@
 **AI web platform** for instant diabetes risk prediction + clinical recommendations.
 
 ### Key Features:
-✅ 8-parameter clinical assessment  
-✅ 78.2% accurate neural network
-✅ Real-time predictions (<1s)
-✅ Risk-stratified medical advice
-✅ Mobile-responsive + ABDM-ready
+- ✅ 8-parameter clinical assessment  
+- ✅ 78.2% accurate neural network
+- ✅ Real-time predictions (<1s)
+- ✅ Risk-stratified medical advice
+- ✅ Mobile-responsive + ABDM-ready
 
 ## 👥 **TEAM CODE BUDDIES**
 | Name | Role | GitHub |
