@@ -182,7 +182,7 @@
             box-shadow: 0 15px 25px rgba(30,64,175,0.3);
         }
 
-        /* Results Section */
+        /* ENHANCED Results Section */
         .results-section {
             background: white;
             border-radius: 20px;
@@ -193,78 +193,152 @@
         }
         .result-metric {
             text-align: center;
-            padding: 2rem;
-            border-radius: 16px;
-            font-size: 3.5rem;
+            padding: 2.5rem;
+            border-radius: 20px;
+            font-size: 4rem;
             font-weight: 700;
             font-family: 'Inter', monospace;
+            margin-bottom: 2rem;
         }
         .risk-high { 
             background: linear-gradient(135deg, #fef2f2, #fee2e2);
             color: var(--danger-500);
-            border: 2px solid #fecaca;
+            border: 3px solid #fecaca;
+            box-shadow: 0 10px 25px rgba(239,68,68,0.2);
         }
         .risk-low { 
             background: linear-gradient(135deg, #f0fdf4, #dcfce7);
             color: var(--success-500);
-            border: 2px solid #bbf7d0;
+            border: 3px solid #bbf7d0;
+            box-shadow: 0 10px 25px rgba(16,185,129,0.2);
         }
         .risk-label {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 600;
             margin-top: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         .risk-subtitle {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--gray-600);
-            margin-top: 0.5rem;
+            margin-top: 0.75rem;
+            font-weight: 500;
         }
+
+        /* Risk Breakdown Cards */
+        .risk-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .risk-factor-card, .recommendations-card {
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+        }
+        .risk-factor-card {
+            border-left: 5px solid var(--danger-500);
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+        }
+        .recommendations-card {
+            border-left: 5px solid var(--success-500);
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+        }
+        .risk-card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .risk-list {
+            list-style: none;
+            padding: 0;
+        }
+        .risk-list li {
+            padding: 0.75rem 0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .risk-list li:last-child { border-bottom: none; }
 
         .chart-container {
             position: relative;
-            height: 300px;
-            margin: 2rem 0;
+            height: 380px;
+            margin: 3rem 0;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
 
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        .stat-card {
+        /* Technical Specifications */
+        .technical-specs {
             background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
             color: white;
-            padding: 1.5rem;
-            border-radius: 16px;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-top: 3rem;
             text-align: center;
+        }
+        .technical-specs h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
         }
         .stat-number {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, white, rgba(255,255,255,0.8));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .stat-label {
-            font-size: 0.875rem;
-            opacity: 0.9;
+            font-size: 0.95rem;
+            opacity: 0.95;
+            font-weight: 500;
         }
 
-        /* Footer */
         .footer {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 0;
             color: var(--gray-600);
-            font-size: 0.875rem;
+            font-size: 0.95rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
         }
 
         @media (max-width: 768px) {
             .main-container { padding: 1rem; }
             .hero h1 { font-size: 2rem; }
             .form-grid { grid-template-columns: 1fr; }
-            .result-metric { font-size: 2.5rem; }
+            .result-metric { font-size: 2.8rem; }
+            .risk-breakdown { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -287,7 +361,7 @@
         <div class="hero">
             <div class="hero-badge">AI-Powered • INNOVIT 2026 • MedTech</div>
             <h1>Predictive Diabetes Risk Assessment</h1>
-            <p class="hero-subtitle">Neural network platform delivering 78% accuracy diabetes risk prediction using PIMA Indians clinical dataset. Built for Ayushman Bharat Digital Mission integration.</p>
+            <p class="hero-subtitle">Neural network platform delivering 78.2% accuracy diabetes risk prediction using PIMA Indians clinical dataset. Built for Ayushman Bharat Digital Mission integration.</p>
         </div>
 
         <!-- Assessment Form -->
@@ -340,43 +414,88 @@
             </form>
         </div>
 
-        <!-- Results -->
+        <!-- ENHANCED Results -->
         {% if risk is not none %}
         <div class="results-section">
+            <!-- Primary Risk Metric -->
             <div class="result-metric {% if risk > 0.5 %}risk-high{% else %}risk-low{% endif %}">
                 <div>{{ "%.1f"|format(risk*100) }}%</div>
                 <div class="risk-label">
-                    {% if risk > 0.5 %}High Risk{% else %}Low Risk{% endif %}
+                    {% if risk > 0.5 %}High Diabetes Risk{% else %}Low Diabetes Risk{% endif %}
                 </div>
                 <div class="risk-subtitle">
                     {% if risk > 0.5 %}
-                        Immediate clinical intervention recommended
+                        <strong>Clinical Priority:</strong> Immediate intervention required
                     {% else %}
-                        Continue routine monitoring
+                        <strong>Clinical Status:</strong> Routine monitoring recommended
                     {% endif %}
                 </div>
             </div>
 
+            <!-- Detailed Risk Breakdown -->
+            <div class="risk-breakdown">
+                <div class="risk-factor-card">
+                    <h3 class="risk-card-title">
+                        <i class="fas fa-exclamation-triangle"></i> Risk Assessment
+                    </h3>
+                    <ul class="risk-list">
+                        <li><i class="fas fa-chart-line"></i> Predicted Risk: {{ "%.1f"|format(risk*100) }}%</li>
+                        <li><i class="fas fa-brain"></i> Neural Network Score</li>
+                        <li><i class="fas fa-database"></i> PIMA Clinical Dataset</li>
+                        <li><i class="fas fa-award"></i> 78.2% Model Accuracy</li>
+                    </ul>
+                </div>
+                
+                <div class="recommendations-card">
+                    <h3 class="risk-card-title">
+                        <i class="fas fa-stethoscope"></i> Clinical Recommendations
+                    </h3>
+                    <ul class="risk-list">
+                        {% if risk > 0.7 %}
+                            <li><i class="fas fa-user-md"></i> <strong>URGENT:</strong> Endocrinologist consultation</li>
+                            <li><i class="fas fa-flask"></i> HbA1c + fasting glucose tests</li>
+                            <li><i class="fas fa-pills"></i> Consider metformin therapy</li>
+                        {% elif risk > 0.5 %}
+                            <li><i class="fas fa-heartbeat"></i> <strong>PRIORITY:</strong> OGTT screening</li>
+                            <li><i class="fas fa-dumbbell"></i> Intensive lifestyle intervention</li>
+                            <li><i class="fas fa-calendar-check"></i> 3-month follow-up</li>
+                        {% else %}
+                            <li><i class="fas fa-calendar-check"></i> Annual screening recommended</li>
+                            <li><i class="fas fa-apple-alt"></i> Maintain healthy lifestyle</li>
+                            <li><i class="fas fa-chart-line"></i> Monitor trends quarterly</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Enhanced Visualization -->
             <div class="chart-container">
                 <canvas id="riskChart"></canvas>
             </div>
 
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">78.2%</div>
-                    <div class="stat-label">Model Accuracy</div>
+            <!-- Technical Specifications -->
+            <div class="technical-specs">
+                <h3><i class="fas fa-microchip"></i> Neural Network Specifications</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">78.2%</div>
+                        <div class="stat-label">Model Accuracy</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">768</div>
+                        <div class="stat-label">Training Samples</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Clinical Features</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">TensorFlow</div>
+                        <div class="stat-label">Deep Learning</div>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">768</div>
-                    <div class="stat-label">Training Samples</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">8</div>
-                    <div class="stat-label">Features</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">TensorFlow</div>
-                    <div class="stat-label">Neural Network</div>
+                <div style="font-size: 0.9rem; opacity: 0.9;">
+                    <strong>INNOVIT 2026 • Theme 3: MedTech</strong> | PIMA Indians Diabetes Dataset | Ayushman Bharat Digital Mission Ready
                 </div>
             </div>
         </div>
@@ -384,7 +503,7 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <p><strong>Code Buddies Health Platform</strong> | INNOVIT 2026 Finalist | Theme 3: MedTech | Built for India's 77M diabetics</p>
+            <p><strong>Code Buddies Health Platform</strong> | INNOVIT 2026 Finalist | Theme 3: MedTech | Serving India's 77M diabetics</p>
         </footer>
     </div>
 
@@ -398,8 +517,11 @@
                 datasets: [{
                     data: [{{ "%.1f"|format(risk*100) }}, {{ "%.1f"|format((1-risk)*100) }}],
                     backgroundColor: ['#ef4444', '#10b981'],
-                    borderWidth: 0,
-                    cutout: '65%'
+                    borderWidth: 4,
+                    borderColor: '#ffffff',
+                    cutout: '65%',
+                    hoverOffset: 12,
+                    tension: 0.4
                 }]
             },
             options: {
@@ -409,11 +531,26 @@
                     legend: { 
                         position: 'bottom',
                         labels: { 
-                            padding: 30,
+                            padding: 40,
                             usePointStyle: true,
-                            font: { size: 14 }
+                            font: { size: 15, family: 'Inter', weight: '500' },
+                            color: '#374151'
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0,0,0,0.8)',
+                        titleFont: { size: 14, family: 'Inter' },
+                        bodyFont: { size: 14, family: 'Inter' },
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + context.parsed.toFixed(1) + '%';
+                            }
                         }
                     }
+                },
+                animation: {
+                    animateRotate: true,
+                    duration: 2000
                 }
             }
         });
