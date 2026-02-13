@@ -9,23 +9,30 @@
 
 ## 🎯 Problem Statement
 
-- **India has 77 million diabetics** (highest in world)
-- Early detection can **reduce complications by 58%**
-- Rural areas **lack access to screening**
-- Traditional testing costs **₹1500-3000 per person**
-- Need for **scalable, accessible digital solutions**
+- **India has 77 million diabetics** (highest globally)
+- Early detection reduces complications by **58%**
+- Rural screening access limited
+- Lab tests cost **₹1500-3000/person**
+- Need scalable digital solutions
 
 ## ✨ Solution
 
-**AI-powered web platform** delivering instant diabetes risk predictions with clinical recommendations.
+**AI web platform** for instant diabetes risk prediction + clinical recommendations.
 
 ### Key Features:
-- ✅ **8-parameter clinical assessment** (glucose, BMI, age, etc.)
-- ✅ **78.2% accuracy** neural network
-- ✅ **Real-time predictions** (<1 second)
-- ✅ **Smart recommendations** (risk-stratified medical advice)
-- ✅ **Mobile-responsive** design
-- ✅ **ABDM-ready** (Ayushman Bharat Digital Mission)
+✅ 8-parameter clinical assessment  
+✅ 78.2% accurate neural network
+✅ Real-time predictions (<1s)
+✅ Risk-stratified medical advice
+✅ Mobile-responsive + ABDM-ready
+
+## 👥 **TEAM CODE BUDDIES**
+| Name | Role | GitHub |
+|------|------|--------|
+| **Rishi Raj** | Lead | [@RishiRaj1495](https://github.com/RishiRaj1495) |
+| **Abhilash Singh** | Member | [@Abhilash-2210](https://github.com/Abhilash-2210) |
+| **Swastik Sinha** | Member | [@swastiksinha1](https://github.com/swastiksinha1) |
+| **Brotodeep Pal** | Member | [@BrotodeepPal](https://github.com/) |
 
 ## 🏗️ System Architecture
 
@@ -238,7 +245,6 @@ Contributions welcome! Please fork and submit pull requests.
 ## 📞 Contact
 
 - **Email:** [nagd581@gmail.com]
-
 - **GitHub:** [@RishiRaj1495](https://github.com/RishiRaj1495/code-buddies-mvp)
 
 ---
