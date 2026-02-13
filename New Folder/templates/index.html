@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Code Buddies | Predictive Health Intelligence Platform</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-500: #1e40af;
+            --primary-600: #1d4ed8;
+            --primary-700: #1e3a8a;
+            --success-500: #10b981;
+            --danger-500: #ef4444;
+            --warning-500: #f59e0b;
+            --gray-50: #f9fafb;
+            --gray-900: #111827;
+            --border: #e5e7eb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, var(--gray-50) 0%, #f1f5f9 100%);
+            line-height: 1.6;
+            color: var(--gray-900);
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background: white;
+            border-radius: 16px;
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-600);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary-600); }
+
+        /* Hero Section */
+        .hero {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Assessment Card */
+        .assessment-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+        }
+        .assessment-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .assessment-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+        .assessment-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-label {
+            font-weight: 500;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .form-input {
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            background: var(--gray-50);
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-500);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(30,64,175,0.1);
+            transform: translateY(-1px);
+        }
+
+        .predict-button {
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .predict-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(30,64,175,0.3);
+        }
+
+        /* Results Section */
+        .results-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+        .result-metric {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 16px;
+            font-size: 3.5rem;
+            font-weight: 700;
+            font-family: 'Inter', monospace;
+        }
+        .risk-high { 
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            color: var(--danger-500);
+            border: 2px solid #fecaca;
+        }
+        .risk-low { 
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            color: var(--success-500);
+            border: 2px solid #bbf7d0;
+        }
+        .risk-label {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .risk-subtitle {
+            font-size: 1rem;
+            color: var(--gray-600);
+            margin-top: 0.5rem;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 2rem 0;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-container { padding: 1rem; }
+            .hero h1 { font-size: 2rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .result-metric { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                Code Buddies Health
+            </div>
+            <ul class="nav-links">
+                <li><a href="#predictor">Risk Predictor</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">INNOVIT 2026</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero -->
+        <div class="hero">
+            <div class="hero-badge">AI-Powered • INNOVIT 2026 • MedTech</div>
+            <h1>Predictive Diabetes Risk Assessment</h1>
+            <p class="hero-subtitle">Neural network platform delivering 78% accuracy diabetes risk prediction using PIMA Indians clinical dataset. Built for Ayushman Bharat Digital Mission integration.</p>
+        </div>
+
+        <!-- Assessment Form -->
+        <div class="assessment-card">
+            <div class="assessment-header">
+                <div class="assessment-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h2 class="assessment-title">Clinical Assessment</h2>
+            </div>
+            
+            <form method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Pregnancies</label>
+                        <input type="number" name="preg" min="0" max="20" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Plasma Glucose (mg/dL)</label>
+                        <input type="number" name="glucose" min="0" max="300" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Diastolic BP (mmHg)</label>
+                        <input type="number" name="pressure" min="0" max="150" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Skin Thickness (mm)</label>
+                        <input type="number" step="0.1" name="thickness" min="0" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Serum Insulin (μU/ml)</label>
+                        <input type="number" name="insulin" min="0" max="500" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">BMI (kg/m²)</label>
+                        <input type="number" step="0.1" name="bmi" min="0" max="70" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Pedigree Function</label>
+                        <input type="number" step="0.001" name="pedigree" min="0" max="3" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Age (years)</label>
+                        <input type="number" name="age" min="20" max="90" required>
+                    </div>
+                </div>
+                <button type="submit" class="predict-button">
+                    <i class="fas fa-bolt"></i> Generate Risk Assessment
+                </button>
+            </form>
+        </div>
+
+        <!-- Results -->
+        {% if risk is not none %}
+        <div class="results-section">
+            <div class="result-metric {% if risk > 0.5 %}risk-high{% else %}risk-low{% endif %}">
+                <div>{{ "%.1f"|format(risk*100) }}%</div>
+                <div class="risk-label">
+                    {% if risk > 0.5 %}High Risk{% else %}Low Risk{% endif %}
+                </div>
+                <div class="risk-subtitle">
+                    {% if risk > 0.5 %}
+                        Immediate clinical intervention recommended
+                    {% else %}
+                        Continue routine monitoring
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="riskChart"></canvas>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">78.2%</div>
+                    <div class="stat-label">Model Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">768</div>
+                    <div class="stat-label">Training Samples</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Features</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">TensorFlow</div>
+                    <div class="stat-label">Neural Network</div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p><strong>Code Buddies Health Platform</strong> | INNOVIT 2026 Finalist | Theme 3: MedTech | Built for India's 77M diabetics</p>
+        </footer>
+    </div>
+
+    <script>
+    {% if risk is not none %}
+        const ctx = document.getElementById('riskChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Diabetes Risk', 'Healthy Range'],
+                datasets: [{
+                    data: [{{ "%.1f"|format(risk*100) }}, {{ "%.1f"|format((1-risk)*100) }}],
+                    backgroundColor: ['#ef4444', '#10b981'],
+                    borderWidth: 0,
+                    cutout: '65%'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { 
+                        position: 'bottom',
+                        labels: { 
+                            padding: 30,
+                            usePointStyle: true,
+                            font: { size: 14 }
+                        }
+                    }
+                }
+            }
+        });
+    {% endif %}
+    </script>
+</body>
+</html>
