@@ -20,11 +20,11 @@
 **AI web platform** for instant diabetes risk prediction + clinical recommendations.
 
 ### Key Features:
-- ✅ 8-parameter clinical assessment  
-- ✅ 78.2% accurate neural network
-- ✅ Real-time predictions (<1s)
-- ✅ Risk-stratified medical advice
-- ✅ Mobile-responsive + ABDM-ready
+-  8-parameter clinical assessment  
+-  78.2% accurate neural network
+-  Real-time predictions (<1s)
+-  Risk-stratified medical advice
+-  Mobile-responsive + ABDM-ready
 
 ## 👥 **TEAM CODE BUDDIES**
 | Name | Role | GitHub |
@@ -136,9 +136,9 @@ http://localhost:5000
 ## 🎨 User Interface
 
 **Responsive Design:**
-- ✅ Desktop (1920px+)
-- ✅ Tablet (768-1024px)
-- ✅ Mobile (320-767px)
+-  Desktop (1920px+)
+-  Tablet (768-1024px)
+-  Mobile (320-767px)
 
 **Accessibility:**
 - Color contrast: WCAG AA compliant
@@ -203,15 +203,15 @@ Expected Result: ~65% risk → Priority screening
 | Training Samples | 768 |
 | Clinical Features | 8 |
 | Deployment Time | <5 minutes (Vercel) |
-| Production Ready | ✅ Yes |
+| Production Ready |  Yes |
 
 ## 🔒 Security & Privacy
 
-- ✅ No patient data stored on server
-- ✅ HIPAA-compatible architecture
-- ✅ Client-side predictions
-- ✅ HTTPS encryption
-- ✅ No third-party tracking
+-  No patient data stored on server
+-  HIPAA-compatible architecture
+-  Client-side predictions
+-  HTTPS encryption
+-  No third-party tracking
 
 ## 📹 Demo Video
 
@@ -242,7 +242,7 @@ MIT License - See LICENSE file
 
 Contributions welcome! Please fork and submit pull requests.
 
-## 📞 Contact
+##  Contact
 
 - **Email:** [nagd581@gmail.com]
 - **GitHub:** [@RishiRaj1495](https://github.com/RishiRaj1495/code-buddies-mvp)
